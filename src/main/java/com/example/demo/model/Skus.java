@@ -56,4 +56,13 @@ public class Skus {
 		this.price = price;
 	}
 
+	public Product getProducts() {
+		return products;
+	}
+
+	public void setProducts(Product products) {
+		this.products = products;
+	}
+	
+
 }

@@ -39,6 +39,15 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Set<Skus> getSkus() {
+		return skus;
+	}
+
+	public void setSkus(Set<Skus> skus) {
+		this.skus = skus;
+	}
+	
 	
 
 	
