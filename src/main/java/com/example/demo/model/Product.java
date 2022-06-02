@@ -28,6 +28,18 @@ public class Product {
 	@OneToMany(mappedBy = "products", fetch = FetchType.LAZY)
 	private Set<ProductVariantsOptions> productVariantsOptions = new HashSet<ProductVariantsOptions>();
 
+	public Product() {
+		super();
+	}
+
+	public Product(String name, Set<Skus> skus, Set<ProductVariantsOptions> productVariantsOptions) {
+		super();
+
+		this.name = name;
+		this.skus = skus;
+		this.productVariantsOptions = productVariantsOptions;
+	}
+
 	public Long getId() {
 		return id;
 	}

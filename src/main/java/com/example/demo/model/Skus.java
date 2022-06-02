@@ -37,9 +37,21 @@ public class Skus {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Product products;
 
-	// manytomany skus vs ProductVariantsOptions  
+	// manytomany skus vs ProductVariantsOptions
 	@ManyToMany(mappedBy = "skus", fetch = FetchType.LAZY)
 	Set<ProductVariantsValue> variantsValues = new HashSet<ProductVariantsValue>();
+
+	public Skus() {
+		super();
+	}
+
+	public Skus(String sku, double price, Product products, Set<ProductVariantsValue> variantsValues) {
+		super();
+		this.sku = sku;
+		this.price = price;
+		this.products = products;
+		this.variantsValues = variantsValues;
+	}
 
 	public Long getId() {
 		return id;

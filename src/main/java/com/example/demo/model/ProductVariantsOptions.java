@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +23,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-
 @Entity
 @Table(name = "product_variants_options")
 public class ProductVariantsOptions {
@@ -35,27 +33,22 @@ public class ProductVariantsOptions {
 	@Column(name = "name")
 	private String name;
 
+	@OneToMany(mappedBy = "variantsOptions", cascade = CascadeType.ALL)
+	Set<ProductVariantsValue> productVariantsValues = new HashSet<ProductVariantsValue>();
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "product_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Product products;
 
 	public ProductVariantsOptions() {
-		// TODO Auto-generated constructor stub
 	}
-	
-	@OneToMany(mappedBy = "variantsOptions",cascade = CascadeType.ALL)
-	Set<ProductVariantsValue> productVariantsValues = new HashSet<ProductVariantsValue>();
 
 	public ProductVariantsOptions(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
-
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="product_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	
-	private Product products;
-	
 
 	public Long getId() {
 		return id;
@@ -73,7 +66,6 @@ public class ProductVariantsOptions {
 		this.name = name;
 	}
 
-
 	public Set<ProductVariantsValue> getProductVariantsValues() {
 		return productVariantsValues;
 	}
@@ -82,7 +74,6 @@ public class ProductVariantsOptions {
 		this.productVariantsValues = productVariantsValues;
 	}
 
-
 	public Product getProducts() {
 		return products;
 	}
@@ -90,6 +81,5 @@ public class ProductVariantsOptions {
 	public void setProducts(Product products) {
 		this.products = products;
 	}
-	
 
 }

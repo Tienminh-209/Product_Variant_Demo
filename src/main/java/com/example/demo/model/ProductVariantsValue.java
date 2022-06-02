@@ -25,8 +25,10 @@ public class ProductVariantsValue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@Column(name = "name")
 	private String name;
+
 	// many to one productVariantsValues vs ProductVariantsOptions
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_variant_id")
@@ -39,7 +41,6 @@ public class ProductVariantsValue {
 	Set<Skus> skus = new HashSet<Skus>();
 
 	public ProductVariantsValue() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public ProductVariantsValue(Long id, String name) {
