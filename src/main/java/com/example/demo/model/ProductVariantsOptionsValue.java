@@ -19,8 +19,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name = "product_variants_values")
-public class ProductVariantsValue {
+@Table(name = "product_variants_options_values")
+public class ProductVariantsOptionsValue {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,10 +40,10 @@ public class ProductVariantsValue {
 	@JoinTable(name = "product_variant_value_combinations", joinColumns = @JoinColumn(name = "product_variant_value_id"), inverseJoinColumns = @JoinColumn(name = "sku_id"))
 	Set<Skus> skus = new HashSet<Skus>();
 
-	public ProductVariantsValue() {
+	public ProductVariantsOptionsValue() {
 	}
 
-	public ProductVariantsValue(Long id, String name) {
+	public ProductVariantsOptionsValue(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

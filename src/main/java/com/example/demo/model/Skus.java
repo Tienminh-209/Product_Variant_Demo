@@ -39,13 +39,13 @@ public class Skus {
 
 	// manytomany skus vs ProductVariantsOptions
 	@ManyToMany(mappedBy = "skus", fetch = FetchType.LAZY)
-	Set<ProductVariantsValue> variantsValues = new HashSet<ProductVariantsValue>();
+	Set<ProductVariantsOptionsValue> variantsValues = new HashSet<ProductVariantsOptionsValue>();
 
 	public Skus() {
 		super();
 	}
 
-	public Skus(String sku, double price, Product products, Set<ProductVariantsValue> variantsValues) {
+	public Skus(String sku, double price, Product products, Set<ProductVariantsOptionsValue> variantsValues) {
 		super();
 		this.sku = sku;
 		this.price = price;
@@ -85,11 +85,11 @@ public class Skus {
 		this.products = products;
 	}
 
-	public Set<ProductVariantsValue> getVariantsValues() {
+	public Set<ProductVariantsOptionsValue> getVariantsValues() {
 		return variantsValues;
 	}
 
-	public void setVariantsValues(Set<ProductVariantsValue> variantsValues) {
+	public void setVariantsValues(Set<ProductVariantsOptionsValue> variantsValues) {
 		this.variantsValues = variantsValues;
 	}
 

@@ -34,7 +34,7 @@ public class ProductVariantsOptions {
 	private String name;
 
 	@OneToMany(mappedBy = "variantsOptions", cascade = CascadeType.ALL)
-	Set<ProductVariantsValue> productVariantsValues = new HashSet<ProductVariantsValue>();
+	Set<ProductVariantsOptionsValue> productVariantsValues = new HashSet<ProductVariantsOptionsValue>();
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
@@ -66,11 +66,11 @@ public class ProductVariantsOptions {
 		this.name = name;
 	}
 
-	public Set<ProductVariantsValue> getProductVariantsValues() {
+	public Set<ProductVariantsOptionsValue> getProductVariantsValues() {
 		return productVariantsValues;
 	}
 
-	public void setProductVariantsValues(Set<ProductVariantsValue> productVariantsValues) {
+	public void setProductVariantsValues(Set<ProductVariantsOptionsValue> productVariantsValues) {
 		this.productVariantsValues = productVariantsValues;
 	}
 
