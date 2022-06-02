@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -31,6 +36,10 @@ public class Skus {
 	@JoinColumn(name = "product_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Product products;
+
+	// manytomany skus vs ProductVariantsOptions  
+	@ManyToMany(mappedBy = "skus", fetch = FetchType.LAZY)
+	Set<ProductVariantsValue> variantsValues = new HashSet<ProductVariantsValue>();
 
 	public Long getId() {
 		return id;
@@ -63,6 +72,13 @@ public class Skus {
 	public void setProducts(Product products) {
 		this.products = products;
 	}
-	
+
+	public Set<ProductVariantsValue> getVariantsValues() {
+		return variantsValues;
+	}
+
+	public void setVariantsValues(Set<ProductVariantsValue> variantsValues) {
+		this.variantsValues = variantsValues;
+	}
 
 }
