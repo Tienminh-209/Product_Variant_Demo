@@ -24,7 +24,7 @@ public class ProductVariantsValue {
 	private String name;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "category_id")
+	@JoinColumn(name = "product_variant_id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private ProductVariantsOptions variantsOptions;
 
